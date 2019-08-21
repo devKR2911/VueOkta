@@ -42,7 +42,7 @@ const router = new Router({
 Vue.use(Auth, {
   issuer: 'https://dev-623833.oktapreview.com/oauth2/default',
   client_id: '0oan1cievaxhHtiOZ0h7',
-  redirect_uri: 'http://localhost:18350/implicit/callback',
+  redirect_uri: 'http://localhost:34725/implicit/callback',
   scope: 'openid profile email'
 });
 

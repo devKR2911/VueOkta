@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <button v-if="authenticated" v-on:click="logout" id="logout-button">Logout</button>
-    <button v-else v-on:click="$auth.loginRedirect" id="login-button">Login</button>
+    <button v-else v-on:click="userLogin()" id="login-button">Login</button>
     <router-view></router-view>
   </div>
 </template>
@@ -22,8 +22,30 @@ export default {
     $route: "isAuthenticated"
   },
   methods: {
+    // $auth.isAuthenticated
+    // $auth.getAccessToken
+    // $auth.getIdToken
+    // $auth.getUser
+    // $auth.handleAuthentication
+    async userLogin() {
+      await this.$auth.loginRedirect();
+    },
     async isAuthenticated() {
       this.authenticated = await this.$auth.isAuthenticated();
+      if (this.authenticated) {
+        this.getAccessToken();
+        this.getCurrentUserDetails();
+      }
+    },
+    async getAccessToken(){
+      const token = await this.$auth.getAccessToken();
+      console.log('token --', token);
+      const token2 = await this.$auth.getIdToken();
+      console.log('token --', token2);
+    },
+    async getCurrentUserDetails() {
+      const userDetails = await this.$auth.getUser();
+      console.log(userDetails);
     },
     async logout() {
       await this.$auth.logout();

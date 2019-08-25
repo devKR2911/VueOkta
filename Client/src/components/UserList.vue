@@ -10,7 +10,7 @@ export default {
   name: "UserList",
   props: {},
   mounted() {
-    httpGet("https://dev-623833.oktapreview.com/api/v1/users").then(resp => {
+    httpGet('users/getAllUsers').then(resp => {
       console.log(resp);
     });
   }

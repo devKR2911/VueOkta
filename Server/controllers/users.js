@@ -1,24 +1,39 @@
+const https = require('https');
+
 const userList = [{
     id: 0,
-    name: 'User 1'
+    name: 'Name 1'
   },
   {
     id: 1,
-    name: 'User 2'
+    name: 'Name 2'
   },
   {
     id: 2,
-    name: 'User 3'
+    name: 'Name 3'
   },
   {
     id: 3,
-    name: 'User 4'
-  },
+    name: 'Name 4'
+  }
 ];
+
+exports.getAllUsers2 = (req, resp, next) => {
+  // https.get('https://dev-623833.oktapreview.com/api/v1/users?limit=200', (response) => {
+  //   // console.log('response -- ', response);
+  //   return resp.status(200).json({
+  //     massage: 'User list fetched successfully',
+  //     result: response,
+  //   })
+  // }).on("error", (err) => {
+  //   console.log("Error: " + err.message);
+  // });
+};
 
 exports.getAllUsers = (req, resp, next) => {
   resp.status(200).json({
-    massage: 'User list fetched successfully',
-    result: userList,
-  })
-}
+    message: 'User list retrived successfully',
+    posts: userList,
+    totalCount: userList.length
+  });
+};

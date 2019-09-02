@@ -1,14 +1,14 @@
 <template>
   <div class="hello">
-    <h1>Okta Login</h1>
+    <h1>{{ msg }}</h1>
   </div>
 </template>
 
 <script>
 export default {
-  name: "OktaLogin",
-  props: {
-    msg: String
+  name: "Login",
+  data: function() {
+    return { msg: "Login" };
   }
 };
 </script>

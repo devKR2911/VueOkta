@@ -1,20 +1,19 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
-    <Login />
+    <div>
+      <router-link to="/">HelloWorld</router-link>|
+      <router-link to="/dashboard">Dashboard</router-link>|
+      <router-link to="/login">Login</router-link>
+    </div>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue';
-import Login from "./components/Login/Login.vue";
-
 export default {
   name: "app",
-  components: {
-    // HelloWorld,
-    Login
-  }
+  components: {}
 };
 </script>
 

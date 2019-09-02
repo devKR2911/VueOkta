@@ -1,4 +1,4 @@
-# identityserverapp
+# app-frontend
 
 ## Project setup
 ```

@@ -7,10 +7,10 @@ import loginHelper from './Login.helper';
 export default {
   name: 'Dashboard',
   directives: {
-    colorChanger
+    colorChanger,
   },
   filters: {
-    currency
+    currency,
   },
   data() {
     return {
@@ -24,14 +24,13 @@ export default {
   },
   methods: {
     loginUser() {
-      loginHelper.login()
-        .then(res => {
-          this.getUserList(res);
-        });
+      loginHelper.login().then(res => {
+        this.getUserList(res);
+      });
     },
     getUserList(res) {
       console.log(res);
-    }
+    },
   },
   watch: {},
   components: {

@@ -6,8 +6,6 @@ Vue.use(VueAxios, axios);
 
 const baseUrl = 'https://dev-623833.oktapreview.com/api/v1/authn';
 
-export const httpGetOkta = api =>
-  Vue.axios.get(api)
+export const httpGetOkta = api => Vue.axios.get(api);
 
-export const httpPostOkta = (api, params) =>
-  Vue.axios.post(baseUrl, params)
+export const httpPostOkta = (api, params) => Vue.axios.post(baseUrl, params);

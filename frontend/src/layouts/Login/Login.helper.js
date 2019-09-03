@@ -1,12 +1,10 @@
-import {
-  httpPost
-} from '@communication/okta.communication';
+import { httpPostOkta } from '@communication/okta.communication';
 
 const loginHelper = {
   login: () =>
-    httpPost('', {
-      'username': 'nitheeshkr115@gmail.com',
-      'password': 'NitheeshCommon@123'
+    httpPostOkta('', {
+      username: 'nitheeshkr115@gmail.com',
+      password: 'NitheeshCommon@123',
     }),
 };
 

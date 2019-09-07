@@ -14,6 +14,12 @@ export default {
       userListHelper.getAllUsers().then(res => {
         this.userList = res.users;
       });
+    },
+    editUser(user) {
+      console.log(user)
+    },
+    deleteUser(user) {
+      console.log(user)
     }
   },
   watch: {},

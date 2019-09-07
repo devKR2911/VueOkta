@@ -1,5 +1,9 @@
-import { httpPostOkta } from '@communication/okta.communication';
-import { httpGet } from '@communication/communication';
+import {
+  httpPostOkta
+} from '@communication/okta.communication';
+import {
+  httpGet
+} from '@communication/communication';
 
 const loginHelper = {
   login: () =>
@@ -7,7 +11,7 @@ const loginHelper = {
       username: 'nitheeshkr115@gmail.com',
       password: 'NitheeshCommon@123',
     }),
-  getAllUsers: () => httpGet('employee/getAllEmployee'),
+  getAllUsers: () => httpGet('user/getAllUsers'),
 };
 
 export default loginHelper;

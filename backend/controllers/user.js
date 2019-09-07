@@ -18,6 +18,33 @@ exports.getAllEmployee = (req, resp, next) => {
             message: 'Employee List retrived successfully',
             employees: userList,
             totalCount: userList.length,
-        }));
+        })).catch(err => {
+            resp.status(500).json({
+                message: 'Error',
+                error: err,
+            })
+        })
+
+}
+
+exports.addUser = (req, resp, next) => {
+    const newUser = {
+        profile: {
+            firstName: 'Foo',
+            lastName: 'Bar',
+            email: 'foo@example.com',
+            login: 'foo@example.com',
+        },
+        credentials: {
+            password: {
+                value: 'PasswordAbc123'
+            }
+        }
+    };
+
+    client.createUser(newUser)
+        .then(user => {
+            console.log('Created user', user);
+        });
 
 }

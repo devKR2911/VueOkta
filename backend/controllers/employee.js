@@ -1,16 +1,23 @@
 // const Employee = require('../models/employee');
 
-const employeeList = [
-    {"id": 0, "name": "User 1", "designation": "Designation 1" },
-    {"id": 1, "name": "User 2", "designation": "Designation 2" },
-    {"id": 2, "name": "User 3", "designation": "Designation 3" },
-    {"id": 3, "name": "User 4", "designation": "Designation 4" }
-];
+const okta = require('@okta/okta-sdk-nodejs');
+
+const client = new okta.Client({
+    orgUrl: 'https://dev-623833.oktapreview.com/',
+    token: '00Exg7bVflQ4iQ6AS-mux2kDRrfiiMHAxV1NGzIjvA' // Obtained from Developer Dashboard
+});
 
 exports.getAllEmployee = (req, resp, next) => {
-    resp.status(200).json({
-        message: 'Employee List retrived successfully',
-        employees: employeeList,
-        totalCount: employeeList.length,
-    });
+    const orgUsersCollection = client.listUsers();
+    const userList = [];
+
+    orgUsersCollection.each(user => {
+            userList.push(user);
+        })
+        .then((res) => resp.status(200).json({
+            message: 'Employee List retrived successfully',
+            employees: userList,
+            totalCount: userList.length,
+        }));
+
 }

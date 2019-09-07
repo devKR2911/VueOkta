@@ -25,11 +25,14 @@ export default {
   methods: {
     loginUser() {
       loginHelper.login().then(res => {
-        this.getUserList(res);
+        // this.getUserList(res);
       });
     },
-    getUserList(res) {
-      console.log(res);
+    getAllUsers() {
+
+      loginHelper.getAllUsers().then(res => {
+        console.log(res);
+      });
     },
   },
   watch: {},

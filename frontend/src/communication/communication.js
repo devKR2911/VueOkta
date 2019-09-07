@@ -4,8 +4,10 @@ import VueAxios from 'vue-axios';
 
 Vue.use(VueAxios, axios);
 
+const baseUrl = 'http://localhost:3000/';
+
 export const httpGet = api =>
-  Vue.axios.get(api).then(response => {
+  Vue.axios.get(baseUrl + api).then(response => {
     return response.data;
   });
 

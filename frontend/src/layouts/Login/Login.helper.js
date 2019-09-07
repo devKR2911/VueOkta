@@ -1,9 +1,5 @@
-import {
-  httpPostOkta
-} from '@communication/okta.communication';
-import {
-  httpGet
-} from '@communication/communication';
+import { httpPostOkta } from '@communication/okta.communication';
+import { httpGet } from '@communication/communication';
 
 const loginHelper = {
   login: () =>

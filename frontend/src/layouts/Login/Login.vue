@@ -3,7 +3,6 @@
     <input type="text" :model="username" />
     <input type="password" :model="password" />
     <button @click="loginUser">Login</button>
-    <button @click="getAllUsers">GetAllUsers</button>
   </div>
 </template>
 <script src="./Login.js"></script>

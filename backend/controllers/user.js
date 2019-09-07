@@ -7,7 +7,7 @@ const client = new okta.Client({
     token: '00Exg7bVflQ4iQ6AS-mux2kDRrfiiMHAxV1NGzIjvA' // Obtained from Developer Dashboard
 });
 
-exports.getAllEmployee = (req, resp, next) => {
+exports.getAllUsers = (req, resp, next) => {
     const orgUsersCollection = client.listUsers();
     const userList = [];
 
@@ -16,7 +16,7 @@ exports.getAllEmployee = (req, resp, next) => {
         })
         .then((res) => resp.status(200).json({
             message: 'Employee List retrived successfully',
-            employees: userList,
+            users: userList,
             totalCount: userList.length,
         })).catch(err => {
             resp.status(500).json({

@@ -30,11 +30,6 @@ export default {
         })
       });
     },
-    getAllUsers() {
-      loginHelper.getAllUsers().then(res => {
-        console.log(res);
-      });
-    },
   },
   watch: {},
   components: {

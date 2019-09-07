@@ -42,3 +42,40 @@ exports.addUser = (req, resp, next) => {
         })
 
 }
+
+
+exports.getUserDetails = (req, resp, next) => {
+    client.getUser(req.body.id)
+        .then(user => {
+            resp.status(200).json({
+                message: 'User details fetched successfully',
+                user: user,
+            })
+        }).catch(err => {
+            resp.status(500).json({
+                message: 'Failed to fetch user details',
+                error: err,
+            })
+        })
+}
+
+exports.updateUserDetails = (req, resp, next) => {
+    client.getUser(req.body.id)
+        .then(user => {
+
+            user.profile = req.body.userObj.profile;
+            user.credentials = req.body.userObj.credentials;
+            user.update().then((res) =>
+                resp.status(200).json({
+                    message: 'User details fetched successfully',
+                    result: res,
+                })
+            );
+
+        }).catch(err => {
+            resp.status(500).json({
+                message: 'Failed to fetch user details',
+                error: err,
+            })
+        })
+}

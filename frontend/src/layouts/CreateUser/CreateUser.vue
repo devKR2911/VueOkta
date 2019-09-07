@@ -1,6 +1,7 @@
 <template>
-  <div class="container">
-    <h2>Create User</h2>
+  <div class="create-user-container">
+    <h2 v-if="!isEditMode">Create User</h2>
+    <h2 v-else>Update User</h2>
     <div class="row">
       <div class="col-1">First Name:</div>
       <div class="col-2">
@@ -26,7 +27,8 @@
       </div>
     </div>
     <div class="button-container">
-      <button @click="addUser">Add User</button>
+      <button v-if="!isEditMode" @click="addUser">Add User</button>
+      <button v-else @click="updateUser">Update User</button>
     </div>
   </div>
 </template>

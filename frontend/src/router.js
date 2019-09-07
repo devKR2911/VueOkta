@@ -30,6 +30,11 @@ export default new Router({
       component: () => import('./layouts/CreateUser/CreateUser.vue'),
     },
     {
+      path: '/updateuser/:id',
+      name: 'updateuser',
+      component: () => import('./layouts/CreateUser/CreateUser.vue'),
+    },
+    {
       path: '/404',
       name: '404',
       component: () => import('./layouts/PageNotFound/PageNotFound.vue'),

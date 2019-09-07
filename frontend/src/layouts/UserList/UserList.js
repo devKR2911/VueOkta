@@ -16,7 +16,12 @@ export default {
       });
     },
     editUser(user) {
-      console.log(user)
+      this.$router.push({
+        name: 'updateuser',
+        params: {
+          id: user.id
+        }
+      })
     },
     deleteUser(user) {
       console.log(user)

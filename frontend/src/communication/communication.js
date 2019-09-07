@@ -11,7 +11,7 @@ export const httpGet = api =>
     return response.data;
   });
 
-export const httpPost = api =>
-  Vue.axios.get(api).then(response => {
+export const httpPost = (api, postParams) =>
+  Vue.axios.post(baseUrl + api, postParams).then(response => {
     return response.data;
   });

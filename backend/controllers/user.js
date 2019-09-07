@@ -28,23 +28,17 @@ exports.getAllUsers = (req, resp, next) => {
 }
 
 exports.addUser = (req, resp, next) => {
-    const newUser = {
-        profile: {
-            firstName: 'Foo',
-            lastName: 'Bar',
-            email: 'foo@example.com',
-            login: 'foo@example.com',
-        },
-        credentials: {
-            password: {
-                value: 'PasswordAbc123'
-            }
-        }
-    };
-
-    client.createUser(newUser)
+    client.createUser(req.body)
         .then(user => {
-            console.log('Created user', user);
-        });
+            resp.status(200).json({
+                message: 'User created successfully',
+                user: user,
+            })
+        }).catch(err => {
+            resp.status(500).json({
+                message: 'Failed to create user',
+                error: err,
+            })
+        })
 
 }

@@ -6,28 +6,39 @@ export default {
     return {
       id: '',
       pageName: 'CreateUser',
+      firstname: '',
+      lastname: '',
+      email: '',
+      password: ''
     };
   },
   methods: {
     addUser() {
       const newUser = {
         profile: {
-          firstName: 'Foo',
-          lastName: 'Bar',
-          email: 'foo@example.com',
-          login: 'foo@example.com',
+          firstName: this.firstname,
+          lastName: this.lastname,
+          email: this.email,
+          login: this.email,
         },
         credentials: {
           password: {
-            value: 'PasswordAbc123'
+            value: this.password
           }
         }
       }
       createUserHelper.addUser(newUser).then(res => {
+        this.clearFields();
         alert('user created successfully');
       }).catch(err => {
         alert('failed to create user');
       })
+    },
+    clearFields() {
+      this.firstname = '';
+      this.lastname = '';
+      this.email = '';
+      this.password = '';
     }
   },
   watch: {},

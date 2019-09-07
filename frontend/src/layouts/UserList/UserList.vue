@@ -3,7 +3,7 @@
     <h2>User List</h2>
     <div class="container">
       <div class="row" v-for="user in userList" :key="user.id">
-        <div class="col-1">{{ user.profile.firstName }} {{user.profile.lastName}}</div>
+        <div class="col-1">{{ user.profile.firstName }} {{ user.profile.lastName }}</div>
         <div class="col-2">
           <button @click="editUser(user)">Edit</button>
         </div>

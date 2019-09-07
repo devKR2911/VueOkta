@@ -1,7 +1,7 @@
 <template>
   <div class="login-container">
-    <input type="text" :model="username" />
-    <input type="password" :model="password" />
+    <!-- <input type="text" :model="username" />
+    <input type="password" :model="password" />-->
     <button @click="loginUser">Login</button>
   </div>
 </template>

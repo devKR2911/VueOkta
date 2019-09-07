@@ -24,10 +24,10 @@ export default {
   },
   methods: {
     loginUser() {
-      loginHelper.login().then(res => {
+      loginHelper.login().then(() => {
         this.$router.push({
-          path: 'dashboard'
-        })
+          path: 'dashboard',
+        });
       });
     },
   },

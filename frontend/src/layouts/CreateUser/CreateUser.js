@@ -25,16 +25,19 @@ export default {
         },
         credentials: {
           password: {
-            value: this.password
-          }
-        }
-      }
-      createUserHelper.addUser(newUser).then(res => {
-        this.clearFields();
-        alert('user created successfully');
-      }).catch(err => {
-        alert('failed to create user');
-      })
+            value: this.password,
+          },
+        },
+      };
+      createUserHelper
+        .addUser(newUser)
+        .then(() => {
+          this.clearFields();
+          alert('user created successfully');
+        })
+        .catch(() => {
+          alert('failed to create user');
+        });
     },
     updateUser() {
       const userObj = {
@@ -46,21 +49,24 @@ export default {
         },
         credentials: {
           password: {
-            value: this.password
-          }
-        }
-      }
+            value: this.password,
+          },
+        },
+      };
       const updateObj = {
         id: this.userId,
-        userObj: userObj,
+        userObj,
       };
 
-      createUserHelper.updateUser(updateObj).then(res => {
-        this.clearFields();
-        alert('user updated successfully');
-      }).catch(err => {
-        alert('failed to update user');
-      })
+      createUserHelper
+        .updateUser(updateObj)
+        .then(() => {
+          this.clearFields();
+          alert('user updated successfully');
+        })
+        .catch(() => {
+          alert('failed to update user');
+        });
     },
     setUserDetails(userDetails) {
       this.firstname = userDetails.profile.firstName;
@@ -77,13 +83,13 @@ export default {
     },
     getUserDetails(userId) {
       const userObj = {
-        id: userId
+        id: userId,
       };
       this.userId = userId;
       createUserHelper.getUserDetails(userObj).then(res => {
         this.setUserDetails(res.user);
-      })
-    }
+      });
+    },
   },
   watch: {},
   mounted() {

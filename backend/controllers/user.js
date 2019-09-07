@@ -79,3 +79,23 @@ exports.updateUserDetails = (req, resp, next) => {
             })
         })
 }
+
+exports.deleteUser = (req, resp, next) => {
+    client.getUser(req.body.id)
+        .then(user => {
+
+            user.deactivate()
+                .then((res) => console.log('User has been deactivated'))
+                .then((res) => user.delete())
+                .then((res) => resp.status(200).json({
+                    message: 'User deleted successfully',
+                    result: res,
+                }));
+
+        }).catch(err => {
+            resp.status(500).json({
+                message: 'Failed to fetch user details',
+                error: err,
+            })
+        })
+}

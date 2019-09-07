@@ -19,16 +19,23 @@ export default {
       this.$router.push({
         name: 'updateuser',
         params: {
-          id: user.id
-        }
-      })
+          id: user.id,
+        },
+      });
     },
     deleteUser(user) {
-      console.log(user)
-    }
+      if (window.confirm('Are you sure to delete this user?')) {
+        const userObj = {
+          id: user.id,
+        };
+        userListHelper.deleteUser(userObj).then(() => {
+          this.getUserList();
+        });
+      }
+    },
   },
   watch: {},
   mounted() {
-    this.getUserList()
+    this.getUserList();
   },
 };

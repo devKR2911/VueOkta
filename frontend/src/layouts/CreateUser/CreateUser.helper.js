@@ -1,10 +1,7 @@
-import {
-  httpPost,
-  httpGet,
-} from '@communication/communication';
+import { httpPost } from '@communication/communication';
 
 const loginHelper = {
-  addUser: (userObj) => httpPost('user/addUser', userObj),
+  addUser: userObj => httpPost('user/addUser', userObj),
   getUserDetails: userObj => httpPost('user/getUserDetails', userObj),
   updateUser: userObj => httpPost('user/updateUserDetails', userObj),
 };

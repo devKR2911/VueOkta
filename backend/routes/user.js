@@ -7,6 +7,7 @@ router.get('/getAllUsers', userController.getAllUsers);
 router.post('/addUser', userController.addUser);
 router.post('/getUserDetails', userController.getUserDetails);
 router.post('/updateUserDetails', userController.updateUserDetails);
+router.post('/deleteUser', userController.deleteUser);
 
 
 

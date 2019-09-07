@@ -4,8 +4,7 @@ import Router from 'vue-router';
 Vue.use(Router);
 
 export default new Router({
-  routes: [
-    {
+  routes: [{
       path: '/',
       name: 'home',
       component: () => import('./layouts/Dashboard/Dashboard.vue'),
@@ -24,6 +23,11 @@ export default new Router({
       path: '/userlist',
       name: 'userlist',
       component: () => import('./layouts/UserList/UserList.vue'),
+    },
+    {
+      path: '/createuser',
+      name: 'createuser',
+      component: () => import('./layouts/CreateUser/CreateUser.vue'),
     },
     {
       path: '/404',

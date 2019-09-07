@@ -25,7 +25,9 @@ export default {
   methods: {
     loginUser() {
       loginHelper.login().then(res => {
-        console.log(res);
+        this.$router.push({
+          path: 'dashboard'
+        })
       });
     },
     getAllUsers() {

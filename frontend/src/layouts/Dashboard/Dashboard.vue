@@ -4,14 +4,9 @@
       <img src="@assets/logo.png" alt />
     </div>
     <div>
-      Im at
-      <span v-colorChange:[styleData]="{ color: 'orange', weight: '900' }">{{ pageName }}</span>
-      {{ 100 | toCurrency }}
+      <button @click="goto('userlist')">User List</button>
+      <button @click="goto('createuser')">Create User</button>
     </div>
-    <div>
-      <BusinessTest />
-    </div>
-    <div v-for="item in dummyData" :key="item.id">{{ item.name }}</div>
   </div>
 </template>
 <script src="./Dashboard.js"></script>

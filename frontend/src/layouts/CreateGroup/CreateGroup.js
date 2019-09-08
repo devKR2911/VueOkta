@@ -14,12 +14,15 @@ export default {
           name: this.groupName,
         },
       };
-      createGroupHelper.createGroup(newGroup).then(() => {
-        alert('Group created successfully');
-        this.groupName = '';
-      }).catch(() => {
-        alert('Failed to create group');
-      });
+      createGroupHelper
+        .createGroup(newGroup)
+        .then(() => {
+          alert('Group created successfully');
+          this.groupName = '';
+        })
+        .catch(() => {
+          alert('Failed to create group');
+        });
     },
   },
   watch: {},

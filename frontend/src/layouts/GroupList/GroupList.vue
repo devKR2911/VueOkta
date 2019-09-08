@@ -5,7 +5,7 @@
       <div class="row" v-for="(group, index) in groupList" :key="group.id">
         <div class="col-1">{{ index + 1 }}. {{ group.profile.name }}</div>
         <div class="col-2">
-          <!-- <button @click="deleteGroup(group)">Delete</button> -->
+          <button @click="deleteGroup(group)">Delete</button>
         </div>
       </div>
     </div>

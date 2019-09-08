@@ -4,8 +4,7 @@ import Router from 'vue-router';
 Vue.use(Router);
 
 export default new Router({
-  routes: [
-    {
+  routes: [{
       path: '/',
       name: 'login',
       component: () => import('./layouts/Login/Login.vue'),
@@ -34,6 +33,11 @@ export default new Router({
       path: '/grouplist',
       name: 'grouplist',
       component: () => import('./layouts/GroupList/GroupList.vue'),
+    },
+    {
+      path: '/groupusers/:groupid',
+      name: 'groupusers',
+      component: () => import('./layouts/GroupUserList/GroupUserList.vue'),
     },
     {
       path: '/creategroup',

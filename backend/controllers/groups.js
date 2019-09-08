@@ -39,3 +39,28 @@ exports.createGroup = (req, resp, next) => {
         });
 
 }
+
+exports.getAllGroupUsers = (req, resp, next) => {
+    const groupObj = req.body;
+    const userList = [];
+    client.getGroup(groupObj.id).then((group) => {
+        group.listUsers().each(user => {
+            userList.push(user);
+        }).then((res) => resp.status(200).json({
+            message: 'Group user list retrived successfully',
+            users: userList,
+            totalCount: userList.length,
+            group: group,
+        })).catch(err => {
+            resp.status(500).json({
+                message: 'Error',
+                error: err,
+            })
+        });
+    }).catch(err => {
+        resp.status(500).json({
+            message: 'Error',
+            error: err,
+        })
+    });
+}

@@ -18,6 +18,14 @@ export default {
     deleteGroup() {
       alert('not implemented');
     },
+    getGroupUsers(group) {
+      this.$router.push({
+        name: 'groupusers',
+        params: {
+          groupid: group.id,
+        },
+      });
+    }
   },
   watch: {},
   mounted() {

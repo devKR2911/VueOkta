@@ -20,10 +20,14 @@
         <input type="text" v-model="email" />
       </div>
     </div>
+    <div class="row" v-if="isEditMode">
+      <input type="checkbox" id="updatePassword" v-model="updatePassword" />
+      <label for="updatePassword">Update Password:</label>
+    </div>
     <div class="row">
       <div class="col-1">Password:</div>
       <div class="col-2">
-        <input type="password" v-model="password" />
+        <input type="password" :disabled="!updatePassword && isEditMode" v-model="password" />
       </div>
     </div>
     <div class="button-container">

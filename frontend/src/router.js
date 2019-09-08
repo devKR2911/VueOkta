@@ -4,11 +4,10 @@ import Router from 'vue-router';
 Vue.use(Router);
 
 export default new Router({
-  routes: [
-    {
+  routes: [{
       path: '/',
-      name: 'home',
-      component: () => import('./layouts/Dashboard/Dashboard.vue'),
+      name: 'login',
+      component: () => import('./layouts/Login/Login.vue'),
     },
     {
       path: '/dashboard',

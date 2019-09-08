@@ -11,6 +11,7 @@ export default {
       email: '',
       password: '',
       isEditMode: false,
+      updatePassword: false,
       userId: '',
     };
   },
@@ -47,12 +48,15 @@ export default {
           email: this.email,
           login: this.email,
         },
-        credentials: {
+
+      };
+      if (this.updatePassword) {
+        userObj.credentials = {
           password: {
             value: this.password,
-          },
-        },
-      };
+          }
+        }
+      }
       const updateObj = {
         id: this.userId,
         userObj,

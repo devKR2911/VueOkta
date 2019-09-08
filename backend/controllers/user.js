@@ -1,13 +1,11 @@
 // const Employee = require('../models/employee');
 
-const okta = require('@okta/okta-sdk-nodejs');
+const okta = require('../config/okta.config');
 
-const client = new okta.Client({
-    orgUrl: 'https://dev-623833.oktapreview.com/',
-    token: '00Exg7bVflQ4iQ6AS-mux2kDRrfiiMHAxV1NGzIjvA' // Obtained from Developer Dashboard
-});
+const client = okta.client;
 
 exports.getAllUsers = (req, resp, next) => {
+    console.log(okta);
     const orgUsersCollection = client.listUsers();
     const userList = [];
 
@@ -70,7 +68,12 @@ exports.updateUserDetails = (req, resp, next) => {
                     message: 'User details fetched successfully',
                     result: res,
                 })
-            );
+            ).catch(err => {
+                resp.status(500).json({
+                    message: 'Failed to update user details',
+                    error: err,
+                })
+            });
 
         }).catch(err => {
             resp.status(500).json({

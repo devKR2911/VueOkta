@@ -15,9 +15,9 @@ export default {
         this.groupList = res.groups;
       });
     },
-    deleteGroup(group) {
+    deleteGroup() {
       alert('not implemented');
-    }
+    },
   },
   watch: {},
   mounted() {

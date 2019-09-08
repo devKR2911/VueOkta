@@ -5,7 +5,6 @@ const okta = require('../config/okta.config');
 const client = okta.client;
 
 exports.getAllUsers = (req, resp, next) => {
-    console.log(okta);
     const orgUsersCollection = client.listUsers();
     const userList = [];
 

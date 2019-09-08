@@ -30,6 +30,11 @@ export default new Router({
       component: () => import('./layouts/CreateUser/CreateUser.vue'),
     },
     {
+      path: '/grouplist',
+      name: 'grouplist',
+      component: () => import('./layouts/GroupList/GroupList.vue'),
+    },
+    {
       path: '/updateuser/:id',
       name: 'updateuser',
       component: () => import('./layouts/CreateUser/CreateUser.vue'),

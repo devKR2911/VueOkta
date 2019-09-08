@@ -13,6 +13,7 @@
     </div>
     <div>
       <button @click="goto('grouplist')">Group List</button>
+      <button @click="goto('creategroup')">Create Group</button>
     </div>
   </div>
 </template>

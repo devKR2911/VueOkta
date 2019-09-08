@@ -48,14 +48,13 @@ export default {
           email: this.email,
           login: this.email,
         },
-
       };
       if (this.updatePassword) {
         userObj.credentials = {
           password: {
             value: this.password,
-          }
-        }
+          },
+        };
       }
       const updateObj = {
         id: this.userId,

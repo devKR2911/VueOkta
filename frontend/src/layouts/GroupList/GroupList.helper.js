@@ -1,6 +1,4 @@
-import {
-  httpGet
-} from '@communication/communication';
+import { httpGet } from '@communication/communication';
 
 const groupListHelper = {
   getAllGroups: () => httpGet('groups/getAllGroups'),

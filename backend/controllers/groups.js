@@ -21,3 +21,21 @@ exports.getAllGroups = (req, resp, next) => {
         })
 
 }
+
+exports.createGroup = (req, resp, next) => {
+    const newGroup = req.body;
+
+    client.createGroup(newGroup)
+        .then(group => {
+            resp.status(200).json({
+                message: 'Group created successfully',
+                group: group,
+            })
+        }).catch(err => {
+            resp.status(500).json({
+                message: 'Error',
+                error: err,
+            })
+        });
+
+}
